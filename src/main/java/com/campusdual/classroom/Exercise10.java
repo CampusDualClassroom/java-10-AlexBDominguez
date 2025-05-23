@@ -10,6 +10,26 @@ public class Exercise10 {
     // COLOR_BOLA puede ser → rojo, azul, verde
     public static void main(String[] args) {
 
+        String color="blanco";
+        int contRojo=0;
+        int contVerde=0;
+        int contAzul=0;
+
+        do{
+            color = getBall();
+            System.out.println("La bola es de color: " + color);
+            switch (color) {
+                case "rojo":
+                    contRojo++;
+                    break;
+                case "azul":
+                    contAzul++;
+                    break;
+                case "verde":
+                    contVerde++;
+                    break;
+            }
+        }while(contAzul<2);
     }
 
     //TODO ↓
@@ -20,10 +40,29 @@ public class Exercise10 {
     // 2 → azul
     // 3 → verde
     public static String getBall() {
-        return null;
+        String color="blanco";
+
+        switch (randomWithRange(1, 3)){
+            case 1: {
+                color = "rojo";
+
+                break;
+            }
+            case 2: {
+                color = "azul";
+                break;
+            }
+            case 3: {
+                color = "verde";
+                break;
+            }
+        }
+
+        return color;
     }
 
     public static int randomWithRange(int min, int max) {
+
         return ThreadLocalRandom.current().nextInt(min,max);
     }
 }
